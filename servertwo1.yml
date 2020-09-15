@@ -1,0 +1,24 @@
+server:
+  port: 8090
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka3000.com:3000/eureka,http://eureka3001.com:3001/eureka,http://eureka3002.com:3002/eureka
+  instance:
+    prefer-ip-address: true
+    instance-id: servertwo1
+    lease-expiration-duration-in-seconds: 30
+    lease-renewal-interval-in-seconds: 10
+spring:
+  application:
+    name: servertwo
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 1000
+feign:
+  hystrix:
+    enabled: true
